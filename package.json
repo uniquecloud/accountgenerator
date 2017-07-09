@@ -4,8 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+      "test": "test",
+      "start":"node app.js"
   },
   "author": "ylkj",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "oauth2-server": "^2.4.1",
+    "web3": "^0.19.1"
+  }
 }
