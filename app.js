@@ -4,7 +4,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var oauthServer = require("oauth2-server");
 
-var controllerOfEth = require("./api/controller/EthController");
+var controllerOfEth = require("./api/controller/EthControllerOfIPC");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended:true }));
@@ -16,9 +16,11 @@ app.oauth = oauthServer({
   debug: true
 });
 
-app.get("/account/eth/:userIdentifier", controllerOfEth.getAccountByUserIdentifier);
+app.get("/account/eth/:userIdentifier/:password", controllerOfEth.getAccountByUserIdentifier);
         
 
 var port = process.env.PORT || 11010;
 app.listen(port);
+
+console.log(`> app is listening ${port}`);
 module.exports = app;
