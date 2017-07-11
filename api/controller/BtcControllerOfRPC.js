@@ -3,8 +3,8 @@ const bitcoin = require('bitcoin');
 var client = new bitcoin.Client({
     port:8332,
     host:'localhost',
-    user: 'bitcoinrpc',
-    pass: 'xxxyyyxxxyyyxxxyyyxxxyyyaskasdjfksjfkj3291235',
+    user: 'your_rpc_user',
+    pass: 'your_rpc_password',
     timeout: 30000
 });
 
