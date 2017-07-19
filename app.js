@@ -17,11 +17,18 @@ app.oauth = oauthServer({
   debug: true
 });
 
+app.all('/oauth/token', app.oauth.grant());
+app.get('/', app.oauth.authorise(), function (req, res) {
+  res.send('Secret area');
+});
+app.use(app.oauth.errorHandler());
+
+
 app.get("/account/eth/:userIdentifier/:password", controllerOfEth.getAccountByUserIdentifier);
 app.get("/account/btc/:userIdentifier/:password", controllerOfBtc.getAccountByUserIdentifier);
-        
 
-var port = process.env.PORT || 11010;
+
+var port = process.env.PORT || 8108;
 app.listen(port);
 
 console.log(`> app is listening ${port}`);

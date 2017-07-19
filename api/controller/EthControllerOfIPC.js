@@ -1,5 +1,5 @@
 const net = require('net');
-const datadir = '/Users/liuhr/data/blockdata/ethereum/prod';
+const datadir = '/mnt/blockchain/ethereumdata/.ethereum';
 module.exports = {
     getAccountByUserIdentifier
 };
@@ -11,7 +11,7 @@ function getAccountByUserIdentifier(req, res){
     let userIdentifier = req.params.userIdentifier;
     let userPassword = req.params.password;
     let account = accountMap[userIdentifier];
-    
+
     if(account) {
         if(account.password == userPassword){
             res.json(account);

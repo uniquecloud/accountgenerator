@@ -3,8 +3,8 @@ const bitcoin = require('bitcoin');
 var client = new bitcoin.Client({
     port:8332,
     host:'localhost',
-    user: 'your_rpc_user',
-    pass: 'your_rpc_password',
+    user: 'bitcoin',
+    pass: 'password',
     timeout: 30000
 });
 
@@ -17,7 +17,7 @@ function getAccountByUserIdentifier(req, res){
     let userIdentifier = req.params.userIdentifier;
     let userPassword = req.params.password;
     let account = accountMap[userIdentifier];
-    
+
     if(account) {
         if(account.password == userPassword){
             res.json(account);
@@ -40,4 +40,3 @@ function getAccountByUserIdentifier(req, res){
         res.json(account);
     });
 };
-
