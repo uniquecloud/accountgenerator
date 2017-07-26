@@ -1,5 +1,5 @@
 {
-  "name": "nodethapp",
+  "name": "accountsgenerator",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -7,14 +7,11 @@
     "test": "test",
     "start": "node app.js"
   },
-  "author": "ylkj",
+  "author": "tony@blockchain.game",
   "license": "ISC",
   "dependencies": {
     "bitcoin": "^3.0.1",
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "oauth2-server": "^2.4.1",
-    "redis": "^2.7.1",
-    "web3": "^0.19.1"
+    "express": "^4.15.3"
   }
 }

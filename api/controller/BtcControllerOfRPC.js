@@ -15,25 +15,11 @@ var accountMap = {};
 
 function getAccountByUserIdentifier(req, res){
     let userIdentifier = req.params.userIdentifier;
-    let userPassword = req.params.password;
     let account = accountMap[userIdentifier];
 
-    if(account) {
-        if(account.password == userPassword){
-            res.json(account);
-            return;
-        }else{
-            res.status(500);
-            res.json({
-                message:"账号错误"
-            });
-            return;
-        }
-    };
     client.getNewAddress( userIdentifier, (err, address, resHeader)=>{
         account = {
-            account: address,
-            password: userPassword
+            account: address
         };
         accountMap[userIdentifier] = account;
         res.status(200);
